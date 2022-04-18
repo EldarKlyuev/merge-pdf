@@ -5,12 +5,16 @@ merger = PdfFileMerger()
 
 
 def merge(pdf_files):
-    print(pdf_files)
-    for pdf in pdf_files:
-        merger.append(pdf)
+    try:
+        print(pdf_files)
+        for pdf in pdf_files:
+            print(pdf)
+            merger.append(pdf)
 
-    merger.write("result.pdf")
-    merger.close()
+        merger.write("result.pdf")
+        merger.close()
+    except Exception as exc:
+        print(exc)
 
 
 if __name__ == '__main__':
