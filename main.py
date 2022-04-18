@@ -1,10 +1,11 @@
 from PyPDF2 import PdfFileMerger
 
-pdfs = ['Баулина.pdf', 'Клюев.pdf', 'Сандаков.pdf']
+pdfs = ['G:/MergePDF/Баулина.pdf', 'G:/MergePDF/Клюев.pdf']
 merger = PdfFileMerger()
 
 
 def merge(pdf_files):
+    print(pdf_files)
     for pdf in pdf_files:
         merger.append(pdf)
 
