@@ -10,17 +10,14 @@ class DlgMain(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('MergePDF')
-        self.resize(300, 200)
-
-        self.ledText = QLineEdit('Files', self)
-        self.ledText.move(35, 30)
+        self.resize(200, 200)
 
         self.btn = QPushButton('Open File', self)
-        self.btn.move(35, 50)
+        self.btn.move(60, 50)
         self.btn.clicked.connect(self.evt_opn_btn_click)
 
         self.btn = QPushButton('Save File', self)
-        self.btn.move(35, 70)
+        self.btn.move(60, 80)
         self.btn.clicked.connect(self.evt_sv_btn_click)
 
     def evt_opn_btn_click(self):
