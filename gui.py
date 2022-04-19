@@ -1,8 +1,5 @@
 import sys
-from pathlib import Path
-
 from PyPDF2 import PdfFileMerger
-
 from PyQt5.QtWidgets import *
 
 arr = list()
@@ -29,23 +26,22 @@ class DlgMain(QDialog):
     def evt_opn_btn_click(self):
         global arr
         res = QFileDialog.getOpenFileNames(self, 'Open File', '/', 'PDF File (*.pdf)')
-        self.ledText.clear()
-        print(res[0])
         arr = res[0]
-        # self.ledText.setText(res[0])
 
     def evt_sv_btn_click(self):
-        print(arr)
         global merger
         try:
             for pdf in arr:
-                print(type(pdf))
                 merger.append(pdf)
 
-            # res = QFileDialog.getSaveFileName(self, 'Save File', '/', 'PDF File (*.pdf)')
-            merger.write('result.pdf')
+            res = QFileDialog.getSaveFileName(self, 'Save File', '/', 'PDF File (*.pdf)')
+            merger.write(res[0])
             merger.close()
+
+            QMessageBox.information(self, 'Save File', f'File saved in {res[0]}')
+
         except Exception as exc:
+            QMessageBox.critical(self, 'Something wrong', 'Error')
             print(exc)
 
 
