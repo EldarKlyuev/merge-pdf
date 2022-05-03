@@ -20,6 +20,7 @@ class DlgMain(QtWidgets.QMainWindow, design.Ui_MainWindow):
             global arr
             res = QtWidgets.QFileDialog.getOpenFileNames(self, 'Open File', '/', 'PDF File (*.pdf)')
             arr = res[0]
+            self.listWidget.clear()
 
             for file_name in res:
                 self.listWidget.addItems(file_name)
