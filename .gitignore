@@ -1,4 +1,4 @@
 *.pdf
 .idea
 main.py
-/__pycache__
+__pycache__/
